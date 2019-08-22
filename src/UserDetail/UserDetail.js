@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {View, StyleSheet, SafeAreaView, Text} from 'react-native';
-import {APP_THEME} from '../../GlobalConstants/Constants';
+import {View, StyleSheet, SafeAreaView, Text, ScrollView} from 'react-native';
+import {APP_THEME, LOCALIZE_STRINGS} from '../../GlobalConstants/Constants';
 
 class UserDetail extends Component {
   render() {
@@ -11,28 +11,46 @@ class UserDetail extends Component {
     } = this.props.navigation;
     return (
       <SafeAreaView style={styles.safeView}>
-        <View style={styles.mainView}>
+        <ScrollView style={styles.mainView}>
           <View style={styles.subView}>
             <Text style={styles.dataText}>
-              Name : {firstname} {lastname}
+              {LOCALIZE_STRINGS.NAME} :{' '}
+              <Text style={styles.valueText}>
+                {firstname} {lastname}
+              </Text>
             </Text>
           </View>
           <View style={styles.subView}>
-            <Text style={styles.dataText}>Email: {email}</Text>
+            <Text style={styles.dataText}>
+              {LOCALIZE_STRINGS.EMAIL}:{' '}
+              <Text style={styles.valueText}>{email}</Text>
+            </Text>
           </View>
           <View style={styles.subView}>
-            <Text style={styles.dataText}>Address: {address}</Text>
+            <Text style={styles.dataText}>
+              {LOCALIZE_STRINGS.ADDRESS} :{' '}
+              <Text style={styles.valueText}>{address}</Text>
+            </Text>
           </View>
           <View style={styles.subView}>
-            <Text style={styles.dataText}>Bio : {bio}</Text>
+            <Text style={styles.dataText}>
+              {LOCALIZE_STRINGS.ZIP}:{' '}
+              <Text style={styles.valueText}>{zip}</Text>
+            </Text>
           </View>
           <View style={styles.subView}>
-            <Text style={styles.dataText}>Hobbies: {hobbies}</Text>
+            <Text style={styles.dataText}>
+              {LOCALIZE_STRINGS.HOBBIES} :{' '}
+              <Text style={styles.valueText}>{hobbies}</Text>
+            </Text>
           </View>
           <View style={styles.subView}>
-            <Text style={styles.dataText}>ZIP: {zip}</Text>
+            <Text style={styles.dataText}>
+              {LOCALIZE_STRINGS.BIO} :{' '}
+              <Text style={styles.valueText}>{bio}</Text>
+            </Text>
           </View>
-        </View>
+        </ScrollView>
       </SafeAreaView>
     );
   }
@@ -43,12 +61,23 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   subView: {
-    margin: 10,
+    marginLeft: 10,
+    marginRight: 10,
+    marginTop: 5,
+    marginBottom: 5,
   },
   dataText: {
     flexWrap: 'wrap',
     fontSize: 16,
-    color: APP_THEME.APP_COLOR_TEXT,
+    fontWeight: '600',
+    textAlign: 'left',
+    color: APP_THEME.APP_COLOR_TITLE,
+  },
+  valueText: {
+    flexWrap: 'wrap',
+    fontSize: 12,
+    textAlign: 'left',
+    color: APP_THEME.APP_COLOR_VALUE,
   },
 });
 

@@ -25,6 +25,11 @@ const navigator = createStackNavigator(
     },
   },
   {
+    defaultNavigationOptions: {
+      headerBackTitle: 'Back',
+    },
+  },
+  {
     initialRouteName: APP_ROUTE.Dashboard,
   },
 );
