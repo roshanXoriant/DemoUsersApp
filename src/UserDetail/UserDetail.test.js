@@ -23,6 +23,6 @@ describe('UserDetail', () => {
       navigation,
     };
     const wrapper = shallow(<UserDetail {...props} />);
-    expect(wrapper.children().find('Text')).toHaveLength(6);
+    expect(wrapper.children().find('Text')).toHaveLength(12);
   });
 });

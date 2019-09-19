@@ -7,14 +7,19 @@ import {
   APP_ROUTE,
 } from '../../GlobalConstants/Constants';
 import UsersListItemCell from './UsersListItemCell';
-
+import {NetworkContext} from '../NetworkProvider/NetworkProvider';
 class Dashboard extends Component {
+  static contextType = NetworkContext;
+
   state = {
     users: [],
   };
-
   componentDidMount() {
-    this.fetchUsers();
+    if (this.context.isConnected) {
+      this.fetchUsers();
+    } else {
+      console.log('No internet connection');
+    }
   }
 
   fetchUsers = async () => {

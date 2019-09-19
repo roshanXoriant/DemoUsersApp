@@ -29,10 +29,10 @@ describe('Dashboard', () => {
     expect(wrapper.children().find('View')).toHaveLength(1);
   });
   it('fetch data from server', async () => {
+    expect.assertions(1);
     const response = await fetch(
       'https://testuserapidev.herokuapp.com/api/v1/getAllUsers',
     );
     expect(response).toBeDefined();
-    console.log(response);
   });
 });
